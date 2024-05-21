@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{ book.title }}</title>
+</head>
+<body>
+<h1>{{ book.title }}</h1>
+<h2>By {{ book.author }}</h2>
+<h3>Genre: {{ book.genre }}</h3>
+<p>{{ book.summary }}</p>
+<h2>Comments</h2>
+<ul>
+{% for comment in book.comments %}
+<li>{{ comment }}</li>
+{% endfor %}
+</ul>
+<form action="/add_comment" method="POST">
+<input type="hidden" name="book_id" value="{{ book.id }}">
+<textarea name="comment" placeholder="Add a comment"></textarea>
+<input type="submit" value="Add Comment">
+</form>
+</body>
+</html>
+
